@@ -1,0 +1,31 @@
+databases:
+  - name: telegram-chat-db
+    databaseName: telegram_chat_db
+    user: telegram_user
+
+services:
+  - type: web
+    name: telegram-chat-api
+    runtime: python3
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn telegramweb.wsgi:application"
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.6
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_DEBUG
+        value: False
+      - key: DATABASE_URL
+        fromDatabase:
+          name: telegram-chat-db
+          property: connectionString
+      - key: TELEGRAM_API_ID
+        sync: false
+      - key: TELEGRAM_API_HASH
+        sync: false
+      - key: DJANGO_ALLOWED_HOSTS
+        value: telegram-chat-api.onrender.com
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://your-frontend-domain.com

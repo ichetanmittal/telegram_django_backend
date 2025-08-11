@@ -1,0 +1,1 @@
+web: gunicorn telegramweb.wsgi:application
