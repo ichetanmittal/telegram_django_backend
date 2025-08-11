@@ -2,11 +2,18 @@
 # exit on error
 set -o errexit
 
+# Detect Python command (works on both local and Render)
+if command -v python &> /dev/null; then
+    PYTHON_CMD=python
+else
+    PYTHON_CMD=python3
+fi
+
 # Install dependencies
-pip install -r requirements.txt
+$PYTHON_CMD -m pip install -r requirements.txt
 
 # Collect static files
-python manage.py collectstatic --no-input
+$PYTHON_CMD manage.py collectstatic --no-input
 
 # Run database migrations
-python manage.py migrate
+$PYTHON_CMD manage.py migrate

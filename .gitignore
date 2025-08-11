@@ -1,0 +1,77 @@
+# Django
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+*.so
+.pytest_cache/
+db.sqlite3
+db.sqlite3-journal
+
+# Environment variables - NEVER commit these!
+.env
+
+# Static files (collected by Django)
+staticfiles/
+static/
+
+# Media files
+media/
+
+# Logs
+*.log
+logs/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Telegram session files (sensitive!)
+*.session
+*.session-journal
+
+# Python virtual environment
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+
+# Local development overrides
+local_settings.py
